@@ -1,0 +1,16 @@
+# Postgres server symbols exist only at runtime, inside the server
+# process that loads the extension — tell the macOS linker not to try to
+# resolve them at build time. Without it `cargo pgrx test` cannot link
+# lab-pg's cdylib on a developer's Mac at all (measured: every pgrx
+# symbol undefined, `ld: symbol(s) not found for architecture arm64`),
+# while the Linux gate is silent because ELF leaves undefined symbols in
+# a shared object to the loader. A fixture nobody can run locally is a
+# rehearsal nobody attends.
+#
+# At the WORKSPACE ROOT, not in crates/lab-pg/: cargo does not read
+# config files from crates inside a workspace, so a crate-local copy
+# would quietly stop applying to anything run from here. edtf carries
+# the identical file for the identical reason, as do ParadeDB and
+# pgvectorscale.
+[target.'cfg(target_os="macos")']
+rustflags = ["-Clink-arg=-undefined", "-Clink-arg=dynamic_lookup"]
