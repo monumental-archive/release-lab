@@ -84,15 +84,15 @@ checksum = "sha256:158f7685b44de51f6c0df1d153526cbcd3e1bc739a8dfc607721cef75de9e
 url = "https://nodejs.org/dist/v24.21.0/node-v24.21.0-win-x64.zip"
 
 [[tools.rust]]
-version = "1.97.1"
-backend = "core:rust"
-
-[tools.rust.options]
-components = "clippy,llvm-tools,rustfmt"
-
-[[tools.rust]]
 version = "nightly-2026-07-20"
 backend = "core:rust"
 
 [tools.rust.options]
 components = "rust-src"
+
+[[tools.rust]]
+version = "1.98.1"
+backend = "core:rust"
+
+[tools.rust.options]
+components = "clippy,llvm-tools,rustfmt"
