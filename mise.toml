@@ -62,7 +62,7 @@ rust = [
 # Build input of the pgrx-extension class; must match the pgrx crate dep.
 "cargo:cargo-pgrx" = "0.19.2"
 # Build input of the rust build classes: auditable binaries (.dep-v0).
-"cargo:cargo-auditable" = "0.7.5"
+"cargo:cargo-auditable" = "0.7.6"
 # Build input of lint:fuzz-build / audit:fuzz (.github#316); cargo
 # backend like cargo-pgrx, sanitizer-none on the stable pin.
 "cargo:cargo-fuzz" = "0.13.2"
