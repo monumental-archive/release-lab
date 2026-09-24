@@ -44,7 +44,7 @@ shell = "bash -euo pipefail -c"
 
 [tools]
 "aqua:rustwasm/wasm-pack" = "0.15.0"
-node = "24.19.0"
+node = "24.21.0"
 # Two toolchains, both locked by mise. The stable pin is what everything
 # builds and releases with; the dated nightly exists solely so audit:fuzz
 # can run libFuzzer under AddressSanitizer on the cron, which the gate
