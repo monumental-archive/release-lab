@@ -6,6 +6,28 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 over the lab crates' public APIs (this is a test bed; the promise is nominal).
 
+## [0.28.2](https://github.com/monumental-archive/release-lab/compare/v0.28.1...v0.28.2) - 2026-09-25
+
+### Fixed
+
+- lock file maintenance ([#263](https://github.com/monumental-archive/release-lab/pull/263))
+- lock file maintenance ([#267](https://github.com/monumental-archive/release-lab/pull/267))
+- meet the org clippy ladder in lab-pg (#265) ([#269](https://github.com/monumental-archive/release-lab/pull/269))
+- lock file maintenance ([#272](https://github.com/monumental-archive/release-lab/pull/272))
+- lock file maintenance ([#274](https://github.com/monumental-archive/release-lab/pull/274))
+- lock file maintenance ([#275](https://github.com/monumental-archive/release-lab/pull/275))
+- lock file maintenance ([#277](https://github.com/monumental-archive/release-lab/pull/277))
+
+### Dependencies
+
+- update github/codeql-action to v4.37.8 ([#271](https://github.com/monumental-archive/release-lab/pull/271))
+- update github/codeql-action to v4.37.9 ([#273](https://github.com/monumental-archive/release-lab/pull/273))
+- update github/codeql-action to v4.38.0 ([#276](https://github.com/monumental-archive/release-lab/pull/276))
+- update node to 24.21.0 ([#279](https://github.com/monumental-archive/release-lab/pull/279))
+- update cargo:cargo-auditable to 0.7.6 ([#278](https://github.com/monumental-archive/release-lab/pull/278))
+- update rust to 1.98.1 ([#280](https://github.com/monumental-archive/release-lab/pull/280))
+- update github/codeql-action to v4.38.1 ([#281](https://github.com/monumental-archive/release-lab/pull/281))
+
 ## [0.28.1](https://github.com/monumental-archive/release-lab/compare/v0.28.0...v0.28.1) - 2026-08-21
 
 ### Fixed
