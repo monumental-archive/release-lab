@@ -26,7 +26,7 @@ concurrency:
 jobs:
   build:
     name: Produce fixtures and declare their digests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions: {}
     outputs:
       subjects: ${{ steps.hash.outputs.subjects }}
@@ -91,7 +91,7 @@ jobs:
       - build
       - sign
 
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
