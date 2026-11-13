@@ -2,6 +2,7 @@
 name = "lab-pg"
 version.workspace = true
 edition.workspace = true
+rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
 readme.workspace = true
@@ -23,7 +24,7 @@ pg_test = []
 
 [dependencies]
 lab-core = { workspace = true }
-pgrx = "=0.19.2"
+pgrx = "=0.19.3"
 
 [dev-dependencies]
-pgrx-tests = "=0.19.2"
+pgrx-tests = "=0.19.3"

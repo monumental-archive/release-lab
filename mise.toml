@@ -6,15 +6,6 @@
 lockfile = true
 
 [env]
-# Workspace members whose tests cannot run on the gate runner; consumed
-# by coverage:check, mirroring the test task's --exclude (lab-pg needs
-# a live postgres — the pgrx tests run in the class's own containers).
-COVERAGE_EXCLUDE = "lab-pg"
-# Same member, same reason, for lint:rust: lab-pg is a pgrx extension
-# whose features (pg14..pg18) are mutually exclusive, so --all-features
-# cannot compile it and it needs a live postgres regardless. Declared
-# rather than inherited from default-members, so a reviewer sees it.
-CLIPPY_EXCLUDE = "lab-pg"
 # Which nightly audit:fuzz runs the sanitized targets under (.github#445).
 # AddressSanitizer is cargo-fuzz's default and needs -Zsanitizer, which
 # stable refuses; the task selects this by name and never guesses. Dated,
@@ -58,9 +49,33 @@ rust = [
   # source and fails without it. Components ride the pin here for the
   # same reason they do above — installed before any task runs.
   { version = "nightly-2026-07-20", components = "rust-src" },
+  # The MSRV toolchain: Cargo.toml promises rust-version 1.97 and every
+  # member inherits it, so lint:msrv compiles at exactly that version
+  # rather than trusting the stable pin to stand in for it (#270). Move
+  # this line and rust-version together, never one alone.
+  { version = "1.97.0" },
 ]
 # Build input of the pgrx-extension class; must match the pgrx crate dep.
 "cargo:cargo-pgrx" = "0.19.3"
+# The Postgres lab-pg is compiled and tested against in the gate, one
+# entry per major the crate's features declare (.github#813). The belt
+# derives the majors from Cargo.toml and reds if a declared one is not
+# pinned here.
+"aqua:theseus-rs/postgresql-binaries" = [
+  "18.6.1",
+  "17.11.1",
+  "16.15.1",
+  "15.19.1",
+  "14.24.1",
+]
+# ICU's headers, for building lab-pg on a Mac: the prebuilt Postgres is
+# built against ICU and ships no headers, and pgrx binds every Postgres
+# header from 0.19.3 (.github tooling-verdicts). macOS only — the runner
+# has libicu-dev. The belt holds this to the major Postgres was built
+# against, so it moves with the Postgres pin above, never on its own.
+"github:unicode-org/icu" = { version = "78.3", version_prefix = "release-", asset_pattern = "icu4c-*-sources.tgz", os = [
+  "macos",
+] }
 # Build input of the rust build classes: auditable binaries (.dep-v0).
 "cargo:cargo-auditable" = "0.7.7"
 # Build input of lint:fuzz-build / audit:fuzz (.github#316); cargo
