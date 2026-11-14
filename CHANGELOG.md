@@ -6,6 +6,57 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 over the lab crates' public APIs (this is a test bed; the promise is nominal).
 
+## [0.28.2](https://github.com/monumental-archive/release-lab/compare/v0.28.1...v0.28.2) - 2026-11-14
+
+### Fixed
+
+- lock file maintenance ([#263](https://github.com/monumental-archive/release-lab/pull/263))
+- lock file maintenance ([#267](https://github.com/monumental-archive/release-lab/pull/267))
+- meet the org clippy ladder in lab-pg (#265) ([#269](https://github.com/monumental-archive/release-lab/pull/269))
+- lock file maintenance ([#272](https://github.com/monumental-archive/release-lab/pull/272))
+- lock file maintenance ([#274](https://github.com/monumental-archive/release-lab/pull/274))
+- lock file maintenance ([#275](https://github.com/monumental-archive/release-lab/pull/275))
+- lock file maintenance ([#277](https://github.com/monumental-archive/release-lab/pull/277))
+- lock file maintenance ([#282](https://github.com/monumental-archive/release-lab/pull/282))
+- lock file maintenance ([#287](https://github.com/monumental-archive/release-lab/pull/287))
+- lock file maintenance ([#289](https://github.com/monumental-archive/release-lab/pull/289))
+- lock file maintenance ([#293](https://github.com/monumental-archive/release-lab/pull/293))
+- lock file maintenance ([#298](https://github.com/monumental-archive/release-lab/pull/298))
+- lock file maintenance ([#302](https://github.com/monumental-archive/release-lab/pull/302))
+- lock file maintenance ([#307](https://github.com/monumental-archive/release-lab/pull/307))
+
+### CI
+
+- run the gate for the merge queue ([#310](https://github.com/monumental-archive/release-lab/pull/310))
+
+### Dependencies
+
+- update github/codeql-action to v4.37.8 ([#271](https://github.com/monumental-archive/release-lab/pull/271))
+- update github/codeql-action to v4.37.9 ([#273](https://github.com/monumental-archive/release-lab/pull/273))
+- update github/codeql-action to v4.38.0 ([#276](https://github.com/monumental-archive/release-lab/pull/276))
+- update node to 24.21.0 ([#279](https://github.com/monumental-archive/release-lab/pull/279))
+- update cargo:cargo-auditable to 0.7.6 ([#278](https://github.com/monumental-archive/release-lab/pull/278))
+- update rust to 1.98.1 ([#280](https://github.com/monumental-archive/release-lab/pull/280))
+- update github/codeql-action to v4.38.1 ([#281](https://github.com/monumental-archive/release-lab/pull/281))
+- update github/codeql-action to v4.38.2 ([#283](https://github.com/monumental-archive/release-lab/pull/283))
+- update cargo:cargo-pgrx to 0.19.3 ([#284](https://github.com/monumental-archive/release-lab/pull/284))
+- update cargo:cargo-auditable to 0.7.7 ([#288](https://github.com/monumental-archive/release-lab/pull/288))
+- update actions/upload-artifact to v7.0.2 ([#291](https://github.com/monumental-archive/release-lab/pull/291))
+- update actions/download-artifact to v8.0.2 ([#290](https://github.com/monumental-archive/release-lab/pull/290))
+- update github/codeql-action to v4.38.3 ([#292](https://github.com/monumental-archive/release-lab/pull/292))
+- update ossf/scorecard-action to v2.5.0 ([#294](https://github.com/monumental-archive/release-lab/pull/294))
+- update node to 24.22.0 ([#296](https://github.com/monumental-archive/release-lab/pull/296))
+- update github/codeql-action to v4.39.0 ([#297](https://github.com/monumental-archive/release-lab/pull/297))
+- update rust to 1.99.1 ([#299](https://github.com/monumental-archive/release-lab/pull/299))
+- update node to 24.22.1 ([#300](https://github.com/monumental-archive/release-lab/pull/300))
+- update github/codeql-action to v4.39.1 ([#301](https://github.com/monumental-archive/release-lab/pull/301))
+- update node to 24.22.2 ([#303](https://github.com/monumental-archive/release-lab/pull/303))
+- update aqua:rustwasm/wasm-pack to 0.15.1 ([#306](https://github.com/monumental-archive/release-lab/pull/306))
+- update github/codeql-action to v4.39.2 ([#308](https://github.com/monumental-archive/release-lab/pull/308))
+- update github/codeql-action to v4.39.3 ([#309](https://github.com/monumental-archive/release-lab/pull/309))
+- update node to 26.13.0 ([#304](https://github.com/monumental-archive/release-lab/pull/304))
+- update ubuntu to 26.04 ([#295](https://github.com/monumental-archive/release-lab/pull/295))
+
 ## [0.28.1](https://github.com/monumental-archive/release-lab/compare/v0.28.0...v0.28.1) - 2026-08-21
 
 ### Fixed
