@@ -9,5 +9,6 @@
 # drift, and never repairs it.
 #
 # band: 2
-# reset: lab-pg joined the measured surface (.github#917): 87.5 was three crates, 56.8 is all four, and an extension's code runs inside the server where llvm-cov cannot see it
+# measured: 56.8
+# derived: v0.28.2
 54.8
