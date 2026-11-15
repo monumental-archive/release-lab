@@ -1,0 +1,13 @@
+# Per-file escapes for sqlfluff, one entry per line, each with its reason.
+# The org's sqlfluff config is delivered by the belt (lint:sql passes it with
+# --config); this file is the repo-shaped half, on the same footing as
+# deny.toml's skips. Nothing goes in here to silence a finding that is
+# simply inconvenient.
+
+# pgrx GENERATES this file (fix:pg-schema writes it), and lint:pg-schema owns
+# it: the belt diffs freshly-generated SQL against it. sqlfluff wants LT05 and
+# RF06 changes (long lines wrapped, quoted identifiers unquoted), and applying
+# them means the snapshot is no longer what pgrx emits, so every later
+# lint:pg-schema run diffs dirty. Removed when the belt's lint:sql skips the
+# snapshot it owns.
+crates/lab-pg/schema.snapshot.sql
