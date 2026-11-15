@@ -1,0 +1,2 @@
+CREATE FUNCTION "lab_answer"() RETURNS INT STRICT LANGUAGE c AS 'MODULE_PATHNAME', 'lab_answer_wrapper';
+CREATE FUNCTION "lab_version"() RETURNS TEXT STRICT LANGUAGE c AS 'MODULE_PATHNAME', 'lab_version_wrapper';

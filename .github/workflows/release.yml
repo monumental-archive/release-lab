@@ -39,14 +39,13 @@ concurrency:
 
 jobs:
   release:
-    uses: monumental-archive/.github/.github/workflows/release.yml@ab78e166fb2fada397b99d38ea9a1afdc3561c4b # v1.65.0
+    uses: monumental-archive/.github/.github/workflows/release.yml@80343686f9142180ff405f5c3476184c28d44504 # v1.66.0
     permissions:
-      # Required. A uses: job with no permissions block takes the
-      # WORKFLOW-level default, not some ambient grant — and the shared
-      # workflow needs this to read the commits it derives the version
-      # from. Omitting it kills the run as startup_failure with no jobs
-      # and no log.
-      contents: read # the version derivation's history read, and the checkout
+      # Required, and easy to omit. A `uses:` job with no `permissions:`
+      # block inherits the WORKFLOW-level default — `permissions: {}` above
+      # — not some ambient grant; without it the run dies as
+      # startup_failure with no jobs and no log.
+      contents: read # this repository's contents and releases, read-only
       # Passed through to release.yml's tag job, where gitsign spends it
       # on the keyless tag signature (.github#349 S4). New in canon
       # v1.23.1: a caller must grant at least what the callee's jobs
