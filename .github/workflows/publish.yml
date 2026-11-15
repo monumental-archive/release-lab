@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   publish:
-    uses: monumental-archive/.github/.github/workflows/publish.yml@205a3b040292cd2cf3eac2473fab8cbf4f843e7a # v1.67.4
+    uses: monumental-archive/.github/.github/workflows/publish.yml@17df32fbe01c60b7d883c040c3b6994ae41221c3 # v1.68.1
     with:
       # The width proof, real: every class but rust-crate (the lab never
       # uploads to crates.io — that class's coexistence and dry-run shape
