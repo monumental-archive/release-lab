@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 over the lab crates' public APIs (this is a test bed; the promise is nominal).
 
+## [0.28.4](https://github.com/monumental-archive/release-lab/compare/v0.28.3...v0.28.4) - 2026-11-16
+
+### Fixed
+
+- update canon to v1.68.2 ([#331](https://github.com/monumental-archive/release-lab/pull/331))
+
 ## [0.28.3](https://github.com/monumental-archive/release-lab/compare/v0.28.2...v0.28.3) - 2026-11-16
 
 ### Fixed
