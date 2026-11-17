@@ -1,0 +1,7 @@
+# Mutation testing (canon #1355): tracking this file adopts the belt's
+# `audit:mutants` Rust leg, run weekly by .github/workflows/mutants.yml
+# (the canon's repo-mutants.yml) and never in the gate or the audit.
+# The measure is no unexplained surviving mutant: kill a survivor with
+# an assertion, or record it below as an `exclude_re` entry with a `#`
+# line above it saying why the mutant is equivalent. Never
+# `#[mutants::skip]` (a dependency in shipped code).
