@@ -110,7 +110,7 @@ jobs:
       # digest derived from this file's own sign.yml uses: line, never
       # written by hand (#314; lint:signer-pin reddens a literal).
       - name: Verify against GitHub's stored attestation
-        uses: monumental-archive/.github/.github/actions/verify-signed@30ba101e4375cbf17c916407ea6d211c35044928 # v1.69.0
+        uses: monumental-archive/.github/.github/actions/verify-signed@4951bb785778a76c049835188f6a3c00b3bf9077 # v1.69.1
         with:
           files: out/fixture-one.txt out/fixture-two.txt
 
@@ -122,7 +122,7 @@ jobs:
           echo "bundle: ${bundle}"
           echo "path=${bundle}" >> "${GITHUB_OUTPUT}"
       - name: Verify offline against the returned bundle
-        uses: monumental-archive/.github/.github/actions/verify-signed@30ba101e4375cbf17c916407ea6d211c35044928 # v1.69.0
+        uses: monumental-archive/.github/.github/actions/verify-signed@4951bb785778a76c049835188f6a3c00b3bf9077 # v1.69.1
         with:
           files: out/fixture-one.txt out/fixture-two.txt
           bundle: ${{ steps.bundle.outputs.path }}
