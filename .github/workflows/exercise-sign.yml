@@ -74,7 +74,7 @@ jobs:
     # Renovate manager split every bump into two unmergeable branches
     # (.github#316 finding 2) — the uses: line is the single statement
     # of the trusted signer everywhere, and everything derives from it.
-    uses: monumental-archive/signer/.github/workflows/sign.yml@d153ea66d88f212e09dcb861a319c4f461994644 # main
+    uses: monumental-archive/signer/.github/workflows/sign.yml@f1bb0d6fc29a1aef4c030d746d57b2cc875bc799 # main
     with:
       subjects: ${{ needs.build.outputs.subjects }}
     permissions:
