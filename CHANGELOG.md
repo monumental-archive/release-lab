@@ -6,6 +6,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 over the lab crates' public APIs (this is a test bed; the promise is nominal).
 
+## [0.28.5](https://github.com/monumental-archive/release-lab/compare/v0.28.4...v0.28.5) - 2026-11-18
+
+### Fixed
+
+- update canon to v1.69.1 ([#342](https://github.com/monumental-archive/release-lab/pull/342))
+
+### CI
+
+- adopt the canon's weekly mutation run for rust ([#344](https://github.com/monumental-archive/release-lab/pull/344))
+
+### Dependencies
+
+- update node to 26.13.1 ([#337](https://github.com/monumental-archive/release-lab/pull/337))
+
 ## [0.28.4](https://github.com/monumental-archive/release-lab/compare/v0.28.3...v0.28.4) - 2026-11-16
 
 ### Fixed
