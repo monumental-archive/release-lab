@@ -10,5 +10,10 @@
 #
 # band: 2
 # measured: 56.8
-# derived: v0.28.5
+# derived: coverage:adopt
 54.8
+#
+# rust-branches: a floor of its own (#1359), measured off the gate and held by
+# the Monday audit, under the same band and the same law.
+# rust-branches measured: 100.0
+rust-branches 98.0
