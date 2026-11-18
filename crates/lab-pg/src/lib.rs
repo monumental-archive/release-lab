@@ -33,9 +33,14 @@ const fn lab_answer() -> i32 {
 }
 
 /// Names the version, so an upgraded installation can say what it runs.
-#[expect(
-    clippy::single_call_fn,
-    reason = "the one in-crate caller is the SQL wrapper #[pg_extern] generates"
+// Conditioned like `lab_answer` above: under the test build the test
+// below is a second caller and the lint goes quiet.
+#[cfg_attr(
+    not(any(test, feature = "pg_test")),
+    expect(
+        clippy::single_call_fn,
+        reason = "the one in-crate caller is the SQL wrapper #[pg_extern] generates"
+    )
 )]
 #[::pgrx::pg_extern]
 fn lab_version() -> String {
@@ -72,6 +77,18 @@ mod tests {
             crate::lab_answer(),
             42_i32,
             "the extension must answer through SQL what lab-core answers in Rust"
+        );
+        // The version check rides this test rather than its own: the
+        // runner pgrx generates calls `pg_test::setup` once per
+        // `#[pg_test]`, so a second test would leave that module's
+        // `single_call_fn` expectations unfulfilled. It kills the two
+        // mutants that replaced the version with an empty or a made-up
+        // string, which nothing asserted before the first mutation run
+        // (canon #1355).
+        assert_eq!(
+            crate::lab_version(),
+            env!("CARGO_PKG_VERSION"),
+            "the extension must name the version it was built as"
         );
     }
 }
