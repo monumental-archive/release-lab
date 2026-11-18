@@ -394,7 +394,7 @@ version = "nightly-2026-07-20"
 backend = "core:rust"
 
 [tools.rust.options]
-components = "rust-src"
+components = "llvm-tools,rust-src"
 
 [[tools.rust]]
 version = "1.97.0"
