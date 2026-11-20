@@ -43,7 +43,7 @@ node = "26.13.1"
 # runs — never mid-run rustup: coverage:check asserts llvm-tools,
 # lint:rust asserts clippy and rustfmt.
 rust = [
-  { version = "1.99.1", components = "clippy,rustfmt,llvm-tools" },
+  { version = "1.100.0", components = "clippy,rustfmt,llvm-tools" },
   # rust-src is not optional on the nightly: audit:fuzz runs `--careful`,
   # which implies -Zbuild-std, which rebuilds the standard library from
   # source and fails without it. llvm-tools is for
