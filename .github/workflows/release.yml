@@ -46,6 +46,7 @@ jobs:
       # — not some ambient grant; without it the run dies as
       # startup_failure with no jobs and no log.
       contents: read # this repository's contents and releases, read-only
+      actions: read # the gate's coverage figures for the commit, read-only (#1622)
       # Passed through to release.yml's tag job, where gitsign spends it
       # on the keyless tag signature (.github#349 S4). New in canon
       # v1.23.1: a caller must grant at least what the callee's jobs
