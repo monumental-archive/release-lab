@@ -57,7 +57,7 @@ jobs:
       crate-dir: crates/lab-wasm
       npm-scope: monumental-archive
       extension-crate-dir: crates/lab-pg
-      pg-majors: 14,15,16,17,18
+      pg-majors: 15,16,17,18
       mint-doi: true
       dry-run: false # the full-width proof in substance
     permissions:
