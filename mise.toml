@@ -86,4 +86,4 @@ rust = [
 
 [tasks.test]
 description = "The fixture crates must build and pass — they are what the shared workflows execute against"
-run = "cargo test --workspace --locked --exclude lab-pg"
+run = '"${ORG_BELT_DIR}/measured" cargo test --workspace --locked --exclude lab-pg'
