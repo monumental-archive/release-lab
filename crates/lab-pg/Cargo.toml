@@ -27,4 +27,4 @@ lab-core = { workspace = true }
 pgrx = "=0.19.3"
 
 [dev-dependencies]
-pgrx-tests = "=0.19.3"
+pgrx-tests = "=0.20.0"
