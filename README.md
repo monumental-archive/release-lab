@@ -98,7 +98,7 @@ logic they invoke lives in the canon, SHA-pinned:
 | `continuous.yml` | the continuous archetype — digest publish on merge, weekly rebuild, no tags, no versions |
 | `exercise-sign.yml` | the org signer across a repository boundary: bytes built here, signed there without the signer ever seeing them, verified the way a stranger would |
 | `source-attest.yml` | this repository's reserved source-signing identity (below) |
-| `audit.yml`, `audit-repro.yml`, `scorecard.yml` | the Monday advisory audit, the Thursday cold rebuild of the latest published release, and the copied Scorecard stub |
+| `dependencies.yml`, `audit-repro.yml`, `scorecard.yml` | the Monday dependency advisory check, the Thursday cold rebuild of the latest published release, and the copied Scorecard stub |
 
 Two classes are deliberately not run here for real. **rust-crate** is
 rehearsed dry — the lab never uploads to crates.io — and its coexistence
