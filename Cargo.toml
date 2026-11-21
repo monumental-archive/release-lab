@@ -21,8 +21,10 @@ license = "MIT OR Apache-2.0"
 # The MSRV a consumer reads, and the one clippy's `incompatible_msrv`
 # checks against: it defaults to this field rather than to a number in
 # clippy.toml, so the manifest stays the single source (canon #445).
-# Equal to the pinned toolchain — this workspace is built with exactly
-# one rustc and claims no compatibility it does not test.
+# Derived, never picked: Debian stable's rustc, or higher where a
+# dependency requires it (.github#1850). lab-pg declares its own,
+# because pgrx requires more. lint:msrv compiles each promise at
+# exactly its number.
 rust-version = "1.85"
 # `clippy::cargo_common_metadata` wants every published crate to carry
 # what a crates.io reader needs. Inherited once here rather than repeated
