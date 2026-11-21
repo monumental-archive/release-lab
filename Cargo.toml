@@ -23,7 +23,7 @@ license = "MIT OR Apache-2.0"
 # clippy.toml, so the manifest stays the single source (canon #445).
 # Equal to the pinned toolchain — this workspace is built with exactly
 # one rustc and claims no compatibility it does not test.
-rust-version = "1.97"
+rust-version = "1.85"
 # `clippy::cargo_common_metadata` wants every published crate to carry
 # what a crates.io reader needs. Inherited once here rather than repeated
 # four times; `description` stays per-crate, being the only one that

@@ -351,5 +351,9 @@ backend = "core:rust"
 components = "llvm-tools,rust-src"
 
 [[tools.rust]]
-version = "1.97.0"
+version = "1.85.0"
+backend = "core:rust"
+
+[[tools.rust]]
+version = "1.96.0"
 backend = "core:rust"
