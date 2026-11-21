@@ -12,11 +12,6 @@ lockfile = true
 # never bare "nightly" — a moving channel is not a pinned input, and this
 # is the one pin in the org Renovate cannot bump.
 FUZZ_TOOLCHAIN = "nightly-2026-07-20"
-# How long each target fuzzes on the Monday cron. 300 rather than the
-# 60s floor: --careful buys extra checks per execution at roughly a
-# fifth of the throughput, and on a weekly cron for a public repo the
-# minutes are free — so buy the checks and the coverage, not one of them.
-FUZZ_SECONDS = "300"
 
 # mise's `[task_config]` governs the file it is written in and layers
 # nowhere, so the canon's copy covers the belt's own bodies and reaches
