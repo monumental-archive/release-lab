@@ -63,10 +63,7 @@ unknown-git = "deny"
 allow-registry = ["https://github.com/rust-lang/crates.io-index"]
 
 [advisories]
-# Defaults are already maximal: every advisory class errors. The only
-# exit is a written `ignore` entry — reason required, citing the VEX
-# statement in the canon's security/vex/ that records the decision
-# (the L2 contract: known, decided, written down).
-ignore = [
-  { id = "RUSTSEC-2021-0127", reason = "see security/vex/RUSTSEC-2021-0127.openvex.json — serde_cbor unmaintained, pgrx's own dependency, not_affected: vulnerable_code_not_present" },
-]
+# Defaults are already maximal: every advisory class errors. No
+# `ignore` here (lint:deny refuses one): a decision is a VEX statement
+# in the canon's security/vex/, and audit:deny judges the scan against
+# it through stele.
