@@ -55,7 +55,7 @@ rust = [
   { version = "1.96.0" },
 ]
 # Build input of the pgrx-extension class; must match the pgrx crate dep.
-"cargo:cargo-pgrx" = "0.19.3"
+"cargo:cargo-pgrx" = "0.20.0"
 # The Postgres lab-pg is compiled and tested against in the gate, one
 # entry per major the crate's features declare (.github#813). The belt
 # derives the majors from Cargo.toml and reds if a declared one is not
