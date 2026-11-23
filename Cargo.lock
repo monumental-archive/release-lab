@@ -287,7 +287,7 @@ checksum = "3bd1574e617a9a6c1f8f8181bd7e841e1f20e4277607ef28945765188d6284d4"
 
 [[package]]
 name = "lab-cli"
-version = "0.28.5"
+version = "0.29.0"
 dependencies = [
  "lab-core",
  "mimalloc",
@@ -295,11 +295,11 @@ dependencies = [
 
 [[package]]
 name = "lab-core"
-version = "0.28.5"
+version = "0.29.0"
 
 [[package]]
 name = "lab-pg"
-version = "0.28.5"
+version = "0.29.0"
 dependencies = [
  "lab-core",
  "pgrx",
@@ -308,7 +308,7 @@ dependencies = [
 
 [[package]]
 name = "lab-wasm"
-version = "0.28.5"
+version = "0.29.0"
 dependencies = [
  "lab-core",
  "wasm-bindgen",
