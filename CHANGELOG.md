@@ -6,6 +6,35 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 over the lab crates' public APIs (this is a test bed; the promise is nominal).
 
+## [0.29.0](https://github.com/monumental-archive/release-lab/compare/v0.28.5...v0.29.0) - 2026-11-23
+
+### Added
+
+- build for Postgres 19 ([#394](https://github.com/monumental-archive/release-lab/pull/394))
+
+### Fixed
+
+- update url to 2.5.9 (#386) ([#387](https://github.com/monumental-archive/release-lab/pull/387))
+- lock file maintenance ([#391](https://github.com/monumental-archive/release-lab/pull/391))
+- hold the fuzz crate to clippy, msrv and deny ([#389](https://github.com/monumental-archive/release-lab/pull/389))
+- update pgrx to 0.20.1 ([#393](https://github.com/monumental-archive/release-lab/pull/393))
+- lock file maintenance ([#395](https://github.com/monumental-archive/release-lab/pull/395))
+
+### Testing
+
+- kill the first mutation run's survivors ([#346](https://github.com/monumental-archive/release-lab/pull/346))
+- give parse_marker a built-value oracle (#380) ([#385](https://github.com/monumental-archive/release-lab/pull/385))
+
+### CI
+
+- adopt the canon's rust branch-coverage floor ([#348](https://github.com/monumental-archive/release-lab/pull/348))
+
+### Dependencies
+
+- update postgresql-binaries to 18.7.0 ([#360](https://github.com/monumental-archive/release-lab/pull/360))
+- update rust to 1.100.0 ([#355](https://github.com/monumental-archive/release-lab/pull/355))
+- update postgresql-binaries ([#366](https://github.com/monumental-archive/release-lab/pull/366))
+
 ## [0.28.5](https://github.com/monumental-archive/release-lab/compare/v0.28.4...v0.28.5) - 2026-11-18
 
 ### Fixed
