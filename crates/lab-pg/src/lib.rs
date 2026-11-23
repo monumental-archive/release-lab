@@ -8,21 +8,6 @@
 pub mod pg_test;
 
 /// The one thing the extension exists to do, callable from SQL.
-// Every path into this crate is a SQL statement, and no lint can see one.
-// The single caller clippy does see is the wrapper `#[pg_extern]`
-// generates, which is the extension's whole point rather than a helper
-// worth inlining into its user.
-// Conditioned on the build the lint actually fires in, the way
-// lab-core conditions its own pair: an `#[expect]` must hold in every
-// configuration compiled, and wherever the test module is compiled the
-// test below is a second caller and the lint goes quiet.
-#[cfg_attr(
-    not(any(test, feature = "pg_test")),
-    expect(
-        clippy::single_call_fn,
-        reason = "the one in-crate caller is the SQL wrapper #[pg_extern] generates"
-    )
-)]
 #[::pgrx::pg_extern]
 const fn lab_answer() -> i32 {
     // `cast_signed` rather than `as`: the org ladder refuses a silent
@@ -33,15 +18,6 @@ const fn lab_answer() -> i32 {
 }
 
 /// Names the version, so an upgraded installation can say what it runs.
-// Conditioned like `lab_answer` above: under the test build the test
-// below is a second caller and the lint goes quiet.
-#[cfg_attr(
-    not(any(test, feature = "pg_test")),
-    expect(
-        clippy::single_call_fn,
-        reason = "the one in-crate caller is the SQL wrapper #[pg_extern] generates"
-    )
-)]
 #[::pgrx::pg_extern]
 fn lab_version() -> String {
     env!("CARGO_PKG_VERSION").to_owned()
@@ -67,10 +43,6 @@ mod tests {
         clippy::missing_panics_doc,
         reason = "a test panics by design; there is no caller to warn"
     )]
-    #[expect(
-        clippy::single_call_fn,
-        reason = "the one caller is the runner #[pg_test] generates"
-    )]
     #[::pgrx::pg_test]
     fn answers() {
         assert_eq!(
@@ -78,13 +50,9 @@ mod tests {
             42_i32,
             "the extension must answer through SQL what lab-core answers in Rust"
         );
-        // The version check rides this test rather than its own: the
-        // runner pgrx generates calls `pg_test::setup` once per
-        // `#[pg_test]`, so a second test would leave that module's
-        // `single_call_fn` expectations unfulfilled. It kills the two
-        // mutants that replaced the version with an empty or a made-up
-        // string, which nothing asserted before the first mutation run
-        // (canon #1355).
+        // The version check kills the two mutants that replaced the
+        // version with an empty or a made-up string, which nothing
+        // asserted before the first mutation run (canon #1355).
         assert_eq!(
             crate::lab_version(),
             env!("CARGO_PKG_VERSION"),
