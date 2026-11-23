@@ -1,0 +1,71 @@
+# Org dependency policy (docs/dependency-track.md in monumental-archive/.github),
+# for the fuzz crate's own workspace and lockfile (.github#2010). Copied
+# from scaffold/ and sized to the fuzz graph; the root deny.toml is the
+# release workspace's. lint:deny (gate) runs bans+licenses+sources over
+# it, audit:deny (Monday cron) runs advisories.
+#
+# The gate half is deterministic: outcome is a function of Cargo.lock plus
+# this file. The advisory half is a moving feed and lives outside the gate.
+
+[graph]
+# All targets: the lock is one artifact; policy must not vary by the
+# machine that happens to evaluate it.
+all-features = true
+
+[licenses]
+# Pure allowlist — anything not named here is denied by default (the only
+# shape the current config offers; the old copyleft/osi knobs are gone).
+# Additions are a canon decision, not a repo edit.
+#
+# Sized to the fuzz graph (fuzz/Cargo.lock), which is not the release
+# workspace's: every crate in it is MIT OR Apache-2.0, so those two are
+# the whole list. An entry the graph never meets is a warning on every
+# run, and an allowance nothing needs.
+allow = ["MIT", "Apache-2.0"]
+
+# libfuzzer-sys bundles LLVM's libFuzzer runtime, which is NCSA
+# ((MIT OR Apache-2.0) AND NCSA). Scoped to that one crate rather than
+# allowed for the graph: libFuzzer is what a fuzz target links, and
+# nothing else here may bring NCSA in unremarked.
+[[licenses.exceptions]]
+crate = "libfuzzer-sys"
+allow = ["NCSA"]
+
+[bans]
+# A `*` requirement is an unpinned intention — deny. Duplicate transitive
+# versions are a gate failure too (#445): the tree is a thing the repo
+# resolves, not a thing it tolerates. Where upstream genuinely forces a
+# duplicate, the exit is a written `[[bans.skip]]` entry citing the
+# upstream issue — a decision recorded once, in the repo whose tree it
+# describes, never a standing warning nobody reads.
+#
+# This is the org's ONLY statement of the duplicate policy.
+# `clippy::multiple_crate_versions` says the same thing and is allowed in
+# the canon's clippy.toml for exactly that reason (docs/dependency-track.md):
+# its allow-list is canon-owned and org-wide, so one repo's unavoidable
+# duplicate would silently exempt every other repo. One policy, one home,
+# at the layer that can describe a single tree.
+wildcards = "deny"
+# A path dependency without a version is a `*` requirement, admitted
+# only from a `publish = false` crate (a fuzz harness, a test helper);
+# cargo-deny still refuses one from a published crate (.github#2009
+# item 4).
+allow-wildcard-paths = true
+multiple-versions = "deny"
+
+[sources]
+# Where dependencies come from is a gated invariant: crates.io only.
+# A git or alternate-registry dependency is a decision for the canon,
+# recorded here as an allow entry, never a repo-local default.
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+
+[advisories]
+# Defaults are already maximal: every advisory class errors. The only
+# exit is the decision in the canon's security/vex/, keyed by advisory,
+# package and version: audit:deny hands cargo-deny's scan to stele,
+# which judges it against those decisions (the L2 contract: known,
+# decided, written down — once). Write no `ignore` here: an advisory
+# ignore is a second copy keyed by the advisory alone, and lint:deny
+# refuses it (#1926).
