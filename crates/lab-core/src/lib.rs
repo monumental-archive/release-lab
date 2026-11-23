@@ -35,13 +35,6 @@ pub const TARGET_SCOPE_CHECK: &str = "v0.27.0";
 
 /// The fixture's one value, returned so the build classes have something
 /// to link and the tests something to assert.
-// Called once inside this crate, by `banner`; the other callers are
-// lab-cli, lab-wasm and the JS across the wasm boundary, none of which
-// single_call_fn can see from here.
-#[expect(
-    clippy::single_call_fn,
-    reason = "the other callers are other crates, and JS beyond the wasm boundary"
-)]
 #[inline]
 #[must_use]
 pub const fn answer() -> u32 {
@@ -53,19 +46,6 @@ pub const fn answer() -> u32 {
 /// Built here rather than in `main` so it is covered: `coverage:check`
 /// counts the whole workspace, and logic in a binary no test enters is
 /// logic nothing measures.
-// The opposite cfg to `answer` above, for the same reason: outside a
-// test build this crate never calls `banner` (lab-cli does), so the lint
-// is silent; under cfg(test) the one test calls it exactly once and it
-// fires. An `#[expect]` must hold in every configuration compiled, so
-// each of these two functions is conditioned on the build the lint
-// actually fires in.
-#[cfg_attr(
-    test,
-    expect(
-        clippy::single_call_fn,
-        reason = "the real caller is lab-cli; under cfg(test) only the test calls it"
-    )
-)]
 #[inline]
 #[must_use]
 pub fn banner(version: &str, arch: &str) -> String {
