@@ -47,15 +47,15 @@ rust = [
   # same reason they do above — installed before any task runs.
   { version = "nightly-2026-07-20", components = "rust-src,llvm-tools" },
   # The MSRV toolchains: the workspace and fuzz/ promise rust-version
-  # 1.85 and lab-pg promises 1.96 (what pgrx 0.19.3 requires), so lint:msrv
+  # 1.85 and lab-pg promises 1.99.1 (what pgrx 0.20.1 requires), so lint:msrv
   # compiles each at exactly that version rather than trusting the
   # stable pin to stand in for it (#270). Move each line and its
   # rust-version together, never one alone.
   { version = "1.85.0" },
-  { version = "1.96.0" },
+  { version = "1.99.1" },
 ]
 # Build input of the pgrx-extension class; must match the pgrx crate dep.
-"cargo:cargo-pgrx" = "0.19.3"
+"cargo:cargo-pgrx" = "0.20.1"
 # The Postgres lab-pg is compiled and tested against in the gate, one
 # entry per major the crate's features declare (.github#813). The belt
 # derives the majors from Cargo.toml and reds if a declared one is not
