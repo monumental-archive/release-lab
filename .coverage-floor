@@ -14,7 +14,7 @@
 # band: 2
 # measured: 83.3
 # derived: coverage:adopt
-# legs: rust pgrx-pg15 pgrx-pg16 pgrx-pg17 pgrx-pg18
+# legs: rust pgrx-pg15 pgrx-pg16 pgrx-pg17 pgrx-pg18 pgrx-pg19
 81.3
 #
 # rust-branches: a floor of its own (#1359), measured off the gate and held by
