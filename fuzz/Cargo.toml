@@ -6,13 +6,23 @@ name = "release-lab-fuzz"
 version = "0.0.0"
 publish = false
 edition = "2024"
+# The number lint:msrv derives for it: its parent crate's, which is the
+# workspace's (Cargo.toml). lint:msrv compiles it at exactly this.
+rust-version = "1.85"
+# The workspace crates' expression, for the reason REUSE.toml records
+# (#155): it stays inside deny.toml's allowlist, which has no 0BSD
+# entry. REUSE.toml's 0BSD remains the statement about these files.
+license = "MIT OR Apache-2.0"
 
 [package.metadata]
 cargo-fuzz = true
 
 [dependencies]
 libfuzzer-sys = "0.4"
-lab-core = { path = "../crates/lab-core" }
+# Paired path + version, the canonical shape the root manifest's
+# [workspace.dependencies] uses: a bare path is a `*` requirement, and
+# fuzz/deny.toml denies wildcards.
+lab-core = { path = "../crates/lab-core", version = "0.28.5" }
 
 [[bin]]
 name = "parse_marker"

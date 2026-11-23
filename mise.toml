@@ -46,8 +46,8 @@ rust = [
   # this nightly (.github#1359). Components ride the pin here for the
   # same reason they do above — installed before any task runs.
   { version = "nightly-2026-07-20", components = "rust-src,llvm-tools" },
-  # The MSRV toolchains: the workspace promises rust-version 1.85 and
-  # lab-pg promises 1.96 (what pgrx 0.19.3 requires), so lint:msrv
+  # The MSRV toolchains: the workspace and fuzz/ promise rust-version
+  # 1.85 and lab-pg promises 1.96 (what pgrx 0.19.3 requires), so lint:msrv
   # compiles each at exactly that version rather than trusting the
   # stable pin to stand in for it (#270). Move each line and its
   # rust-version together, never one alone.
