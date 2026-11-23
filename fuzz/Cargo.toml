@@ -19,10 +19,11 @@ cargo-fuzz = true
 
 [dependencies]
 libfuzzer-sys = "0.4"
-# Paired path + version, the canonical shape the root manifest's
-# [workspace.dependencies] uses: a bare path is a `*` requirement, and
-# fuzz/deny.toml denies wildcards.
-lab-core = { path = "../crates/lab-core", version = "0.28.5" }
+# A bare path, deliberately: a version here would be a copy of the
+# release version the release never bumps (.github#2009 item 4), and
+# fuzz/deny.toml's allow-wildcard-paths admits it from this
+# publish = false crate.
+lab-core = { path = "../crates/lab-core" }
 
 [[bin]]
 name = "parse_marker"

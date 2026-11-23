@@ -46,6 +46,11 @@ allow = ["NCSA"]
 # duplicate would silently exempt every other repo. One policy, one home,
 # at the layer that can describe a single tree.
 wildcards = "deny"
+# A path dependency without a version is a `*` requirement, admitted
+# only from a `publish = false` crate (a fuzz harness, a test helper);
+# cargo-deny still refuses one from a published crate (.github#2009
+# item 4).
+allow-wildcard-paths = true
 multiple-versions = "deny"
 
 [sources]
