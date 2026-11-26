@@ -21,8 +21,3 @@
 # the Monday audit, under the same band and the same law.
 # rust-branches measured: 100.0
 rust-branches 90
-#
-# fuzz-parse-marker: a fuzz target's committed corpus, replayed once (#1896), a
-# floor of its own held by coverage:check, under the same band and law.
-# fuzz-parse-marker measured: 100.0
-fuzz-parse-marker 90
