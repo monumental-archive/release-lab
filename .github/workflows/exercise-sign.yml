@@ -74,7 +74,7 @@ jobs:
     # Renovate manager split every bump into two unmergeable branches
     # (.github#316 finding 2) — the uses: line is the single statement
     # of the trusted signer everywhere, and everything derives from it.
-    uses: monumental-archive/signer/.github/workflows/sign.yml@cf4638eb3cc27192ba2ad154dff7823d10110b0d # main
+    uses: monumental-archive/signer/.github/workflows/sign.yml@44a462f0cbb17a793a11661124d8715b58e5ef4b # main
     with:
       subjects: ${{ needs.build.outputs.subjects }}
     permissions:
@@ -110,7 +110,7 @@ jobs:
       # digest derived from this file's own sign.yml uses: line, never
       # written by hand (#314; lint:signer-pin reddens a literal).
       - name: Verify against GitHub's stored attestation
-        uses: monumental-archive/.github/.github/actions/verify-signed@53a06424fd7f4d6df97daf10df747947867d25da # v1.78.5
+        uses: monumental-archive/.github/.github/actions/verify-signed@b321a3359a64fa0cbc4e1f53d63de6eaa059f49f # v1.78.6
         with:
           files: out/fixture-one.txt out/fixture-two.txt
 
@@ -122,7 +122,7 @@ jobs:
           echo "bundle: ${bundle}"
           echo "path=${bundle}" >> "${GITHUB_OUTPUT}"
       - name: Verify offline against the returned bundle
-        uses: monumental-archive/.github/.github/actions/verify-signed@53a06424fd7f4d6df97daf10df747947867d25da # v1.78.5
+        uses: monumental-archive/.github/.github/actions/verify-signed@b321a3359a64fa0cbc4e1f53d63de6eaa059f49f # v1.78.6
         with:
           files: out/fixture-one.txt out/fixture-two.txt
           bundle: ${{ steps.bundle.outputs.path }}
